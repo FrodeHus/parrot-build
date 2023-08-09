@@ -1,5 +1,11 @@
 # code: language=ansible
 ---
+- name: Uninstall Golang installed by package manager
+  ansible.builtin.apt:
+    name: golang
+    state: absent
+    autoremove: true
+    
 - name: Create download directory
   ansible.builtin.file:
     state: directory
