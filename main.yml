@@ -6,16 +6,16 @@
     - role: "roles/customize-terminal"
     - role: "roles/configure-tmux"
     - role: "roles/install-golang"
+    - role: "roles/install-dotnet"
     - role: "roles/install-tools"
     - role: "roles/customize-browser"
     - role: "roles/configure-logging"
     - role: gantsign.visual-studio-code
       users:
-        - username: "{{ ansible_user_id }}" 
+        - username: "{{ ansible_user_id }}"
           visual_studio_code_extensions:
             - streetsidesoftware.code-spell-checker
             - ms-python.python
             - DEVSENSE.phptools-vscode
             - GitHub.copilot
             - snyk-security.snyk-vulnerability-scanner
-

@@ -1,0 +1,24 @@
+# code: language=ansible
+---
+- name: Download .NET package configuration
+  ansible.builtin.get_url:
+    url: 'https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb'
+    dest: '/tmp/packages-microsoft-prod.deb'
+    force: false
+    use_proxy: true
+    validate_certs: true
+    mode: 'u=rw,go=r'
+
+- name: Install .NET package configuration
+  ansible.builtin.apt:
+    deb: /tmp/packages-microsoft-prod.deb
+  become: true
+  become_method: ansible.builtin.sudo
+  when: not ansible_check_mode
+
+- name: "Installing .NET SDK 7"
+  ansible.builtin.apt:
+    name: dotnet-sdk-7.0
+    update_cache: true
+  become: true
+  become_method: ansible.builtin.sudo
