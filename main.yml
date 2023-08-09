@@ -7,6 +7,7 @@
     - role: "roles/configure-tmux"
     - role: "roles/install-golang"
     - role: "roles/install-dotnet"
+    - role: "roles/install-docker"
     - role: "roles/install-tools"
     - role: "roles/customize-browser"
     - role: "roles/configure-logging"
