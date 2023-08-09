@@ -18,6 +18,14 @@
       - flameshot
       - exiftool
       - ffuf
+      - dnsrecon
+      - feroxbuster
+      - fonts-noto-color-emoji
+      - libqt5sensors5
+      - libqt5webkit5
+      - snmp
+      - tnscmd10g
+      - wkhtmltopdf
     state: latest
   become: true
   become_method: sudo
