@@ -20,3 +20,10 @@
             - DEVSENSE.phptools-vscode
             - GitHub.copilot
             - snyk-security.snyk-vulnerability-scanner
+            - silofy.hackthebox
+            - ms-dotnettools.csharp
+            - josefpihrt-vscode.roslynator
+            - golang.go
+            - shakram02.bash-beautify
+            - ms-python.flake8
+            - infosec-intern.yara
