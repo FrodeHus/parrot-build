@@ -26,6 +26,7 @@
       - snmp
       - tnscmd10g
       - wkhtmltopdf
+      - azure-cli
     state: latest
   become: true
   become_method: sudo
