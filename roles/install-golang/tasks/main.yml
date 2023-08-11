@@ -5,6 +5,8 @@
     name: golang
     state: absent
     autoremove: true
+  become: true
+  become_method: ansible.builtin.sudo
 
 - name: Create download directory
   ansible.builtin.file:
