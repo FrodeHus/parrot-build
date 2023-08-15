@@ -1,4 +1,9 @@
 ---
+- name: "installing nodejs_14.x"
+  shell: curl -sL https://deb.nodesource.com/setup_14.x | bash
+  become: true
+  become_method: sudo
+
 - name: "Updating apt repo/cache"
   apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
   become: true
@@ -8,7 +13,7 @@
   apt: upgrade=yes force_apt_get=yes
   become: true
   become_method: sudo
-  
+
 - name: "Installing Packages"
   package:
     name:
@@ -25,8 +30,17 @@
       - libqt5webkit5
       - snmp
       - tnscmd10g
+      - npm
       - wkhtmltopdf
       - azure-cli
+      - enum4linux
+      - redis-tools
+      - smbmap
+      - nbtscan
+      - nikto
+      - snmp
+      - sslscan
+      - exploitdb
     state: latest
   become: true
   become_method: sudo
