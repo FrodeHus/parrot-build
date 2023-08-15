@@ -26,6 +26,7 @@
       - dnsrecon
       - feroxbuster
       - fonts-noto-color-emoji
+      - fonts-cascadia-code
       - libqt5sensors5
       - libqt5webkit5
       - snmp
