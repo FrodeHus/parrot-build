@@ -47,6 +47,7 @@
       - anonsurf
       - anonsurf-gtk
       - anonsurf-cli
+      - seclists
     state: latest
   become: true
   become_method: sudo
