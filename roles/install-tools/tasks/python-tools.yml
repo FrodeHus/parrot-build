@@ -2,7 +2,7 @@
 - name: "Install pipx tools"
   community.general.pipx:
     name: "{{ item.name }}"
-    source: "{{ item.url }}"
+    source: "{{ item.url | default('') }}"
     state: latest
   loop:
     - { name: "impacket", url: "git+https://github.com/fortra/impacket.git" }
@@ -15,6 +15,13 @@
         name: "autorecon",
         url: "git+https://github.com/Tib3rius/AutoRecon.git",
       }
-    - { name: "name-that-hash" }
-    - { name: "pycryptodome" }
-    - { name: "ludvig" }
+
+- name: "Install pip tools"
+  pip:
+    name:
+      - "pycryptodome"
+      - "name-that-hash"
+      - "ludvig"
+    state: latest
+  become: true
+  become_method: sudo
