@@ -15,11 +15,6 @@
         name: "autorecon",
         url: "git+https://github.com/Tib3rius/AutoRecon.git",
       }
-
-- name: "Install name-that-hash"
-  community.general.pipx:
-    name: { item.name }
-  loop:
     - { name: "name-that-hash" }
     - { name: "pycryptodome" }
     - { name: "ludvig" }
