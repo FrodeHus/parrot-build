@@ -42,6 +42,11 @@
       - snmp
       - sslscan
       - exploitdb
+      - volatility3
+      - parrot-tools-forensics
+      - anonsurf
+      - anonsurf-gtk
+      - anonsurf-cli
     state: latest
   become: true
   become_method: sudo
