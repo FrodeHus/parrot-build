@@ -1,0 +1,17 @@
+# code: language=ansible
+---
+- name: "Cloning bulk-extractor repo"
+  git:
+    repo: https://github.com/simsong/bulk_extractor.git
+    dest: /opt/bulk_extractor
+    recursive: true
+  become: true
+  become_method: ansible.builtin.sudo
+
+- name: Build bulk-extractor
+  command:
+    cmd: sh bootstrap.sh && ./configure && make && make install
+    chdir: /opt/bulk_extractor
+    creates: /usr/local/bin/bulk_extractor
+  become: true
+  become_method: ansible.builtin.sudo

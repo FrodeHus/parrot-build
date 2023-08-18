@@ -9,6 +9,7 @@
     - role: "roles/install-dotnet"
     - role: "roles/install-docker"
     - role: "roles/install-tools"
+    - role: "roles/forensics"
     - role: "roles/customize-browser"
     - role: "roles/configure-logging"
     - role: gantsign.visual-studio-code
