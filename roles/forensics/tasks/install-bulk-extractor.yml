@@ -10,8 +10,13 @@
 
 - name: Build bulk-extractor
   command:
-    cmd: sh bootstrap.sh && ./configure && make && make install
-    chdir: /opt/bulk_extractor
+    cmd: "{{ item.cmd }}"
+    chdir: "{{ item.chdir }}"
     creates: /usr/local/bin/bulk_extractor
+  loop:
+    - { cmd: "sh bootstrap.sh", chdir: /opt/bulk_extractor }
+    - { cmd: "./configure", chdir: /opt/bulk_extractor }
+    - { cmd: "make", chdir: /opt/bulk_extractor }
+    - { cmd: "make install", chdir: /opt/bulk_extractor }
   become: true
   become_method: ansible.builtin.sudo
