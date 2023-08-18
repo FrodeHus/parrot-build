@@ -2,7 +2,7 @@
 ---
 - name: Uninstall Golang installed by package manager
   ansible.builtin.apt:
-    name: golang
+    name: golang*
     state: absent
     autoremove: true
   become: true
@@ -73,3 +73,13 @@
     owner: root
     group: root
     mode: 'u=rw,go=r'
+
+- name: Ensure Go path is part of .bashrc
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    block: |
+      export GOROOT='{{ golang_install_dir }}'
+      export PATH=$GOROOT/bin:$PATH
+    marker: '# {mark} ANSIBLE MANAGED BLOCK - golang'
+    insertbefore: BOF
+    create: yes 

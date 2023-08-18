@@ -47,7 +47,8 @@
       - anonsurf
       - anonsurf-gtk
       - anonsurf-cli
-      - seclists      
+      - seclists
+      - nfs-common
     state: latest
   become: true
   become_method: sudo
