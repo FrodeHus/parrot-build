@@ -1,6 +1,7 @@
 ---
 - name: "installing nodejs_14.x"
   shell: curl -sL https://deb.nodesource.com/setup_14.x | bash
+  creates: /usr/bin/npm
   become: true
   become_method: sudo
 
