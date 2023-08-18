@@ -4,6 +4,23 @@
     src: "{{ role_path }}/files/.bashrc"
     dest: "{{ ansible_env.HOME }}"
 
+- name: "Copy fonts"
+  copy:
+    src: "{{ role_path }}/files/JetBrainsMonoNerdFontMono-Medium.ttf"
+    dest: "{{ ansible_env.HOME }}/.local/share/fonts/"
+
+- name: "Update font cache"
+  command:
+    cmd: "fc-cache -f"
+
+- name: "Set default terminal font"
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop:
+    - {key: "/org/mate/terminal/profiles/default/font", value: "'JetBrainsMonoNL Nerd Font Mono 13'"}
+    - {key: "/org/mate/terminal/profiles/default/use-system-font", value: false}
+
 - name: "Read current mate terminal profiles"
   dconf:
     key: "/org/mate/terminal/global/profile-list"

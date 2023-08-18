@@ -116,6 +116,12 @@ alias dd='dd status=progress'
 alias _='sudo'
 alias _i='sudo -i'
 
+alias gp='git push'
+alias gl='git pull'
+alias g='git'
+alias gpsup='git push --set-upstream origin $(git branch --show-current)'
+alias gpristine='git reset --hard && git clean --force -dfx'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -135,3 +141,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
