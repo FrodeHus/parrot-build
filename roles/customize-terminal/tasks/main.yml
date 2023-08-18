@@ -18,7 +18,7 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop:
-    - {key: "/org/mate/terminal/profiles/default/font", value: "'JetBrainsMonoNL Nerd Font Mono 13'"}
+    - {key: "/org/mate/terminal/profiles/default/font", value: "'JetBrainsMono Nerd Font Mono Bold 13'"}
     - {key: "/org/mate/terminal/profiles/default/use-system-font", value: false}
 
 - name: "Read current mate terminal profiles"
