@@ -3,6 +3,8 @@
   gem:
     name: "{{ item }}"
     state: latest
+    user_install: false
+    install_dir: /usr/local/bin
   loop:
     - logger
     - stringio
