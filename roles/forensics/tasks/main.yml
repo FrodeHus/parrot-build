@@ -1,3 +1,3 @@
 ---
-- include: install-apt-packages.yml
-- include: install-bulk-extractor.yml
+- ansible.builtin.import_tasks: install-apt-packages.yml
+- ansible.builtin.import_tasks: install-bulk-extractor.yml

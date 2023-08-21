@@ -1,7 +1,7 @@
 ---
-- include: apt-stuff.yml
-- include: kerbrute.yml
-- include: github-repos.yml
-- include: python-tools.yml
-- include: gem-tools.yml
-- include: go-tools.yml
+- ansible.builtin.import_tasks: apt-stuff.yml
+- ansible.builtin.import_tasks: kerbrute.yml
+- ansible.builtin.import_tasks: github-repos.yml
+- ansible.builtin.import_tasks: python-tools.yml
+- ansible.builtin.import_tasks: gem-tools.yml
+- ansible.builtin.import_tasks: go-tools.yml

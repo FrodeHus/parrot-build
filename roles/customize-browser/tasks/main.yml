@@ -1,3 +1,3 @@
 ---
-- include: "burp.yml"
-- include: "firefox.yml"
+- ansible.builtin.import_tasks: "burp.yml"
+- ansible.builtin.import_tasks: "firefox.yml"

@@ -1,20 +1,20 @@
 ---
 - name: "Copy BashRC"
-  copy:
+  ansible.builtin.copy:
     src: "{{ role_path }}/files/.bashrc"
     dest: "{{ ansible_env.HOME }}"
 
 - name: "Copy fonts"
-  copy:
+  ansible.builtin.copy:
     src: "{{ role_path }}/files/JetBrainsMonoNerdFontMono-Medium.ttf"
     dest: "{{ ansible_env.HOME }}/.local/share/fonts/"
 
 - name: "Update font cache"
-  command:
+  ansible.builtin.command:
     cmd: "fc-cache -f"
 
 - name: "Set default terminal font"
-  dconf:
+  community.general.dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop:
@@ -22,29 +22,29 @@
     - {key: "/org/mate/terminal/profiles/default/use-system-font", value: false}
 
 - name: "Read current mate terminal profiles"
-  dconf:
+  community.general.dconf:
     key: "/org/mate/terminal/global/profile-list"
     state: "read"
   register: "profile_list"
 
 - name: "profile_list was not set, setting"
-  set_fact:
+  ansible.builtin.set_fact:
     profile_list: 
       value: '["default"]'
   when: profile_list.value is none
 
 - name: "Adding our profile"
-  set_fact:
+  ansible.builtin.set_fact:
     new_profile_list: "{{ profile_list.value | regex_replace(']$', \", 'video']\") }}"
 
 - name: "Writing updated profile list"
-  dconf:
+  community.general.dconf:
     key: "/org/mate/terminal/global/profile-list"
     value: "{{ new_profile_list }}"
   when: "'video' not in profile_list.value"
   
 - name: "Restoring Video Profile from Dump"
-  shell:
+  ansible.builtin.shell:
     cmd: "dconf load /org/mate/terminal/profiles/video/ < {{ role_path }}/files/dconf-dump-video"
   when: "'video' not in profile_list.value"
 
