@@ -5,3 +5,4 @@
 - ansible.builtin.import_tasks: python-tools.yml
 - ansible.builtin.import_tasks: gem-tools.yml
 - ansible.builtin.import_tasks: go-tools.yml
+- ansible.builtin.import_tasks: se-tools.yml
