@@ -3,5 +3,7 @@
   shell: go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 - name: "install anew"
   shell: go install -v github.com/tomnomnom/anew@latest
+- name: "nuclei"
+  shell: go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
 
