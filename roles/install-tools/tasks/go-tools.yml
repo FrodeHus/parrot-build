@@ -5,5 +5,7 @@
   shell: go install -v github.com/tomnomnom/anew@latest
 - name: "nuclei"
   shell: go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+- name: "subfinder"
+  shell: go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
 
